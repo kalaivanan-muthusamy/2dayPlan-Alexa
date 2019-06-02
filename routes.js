@@ -1,13 +1,14 @@
-// const listController = require('./controllers/listController')
+const listController = require('./controllers/listController')
 const response = require('./modules/response')
 const speechletResponse = require('./modules/speechletResponse')
-
-const routes = (event, context, callback) => {
+const allTask = require('./modules/allTask')
+const routes = async (event, context, callback) => {
   switch (event.request.type) {
 
     case "LaunchRequest":
+      const tasks = await allTask()
       context.succeed(
-        response(speechletResponse("Welcome to Task Manager", false))
+        response(speechletResponse("Welcome to Task Manager", true, tasks))
       )
       break;
 

@@ -1,6 +1,6 @@
-const allTasks = require('./modules/allTasks')
-const response = require('./modules/response')
-const speechletResponse = require('./modules/speechletResponse')
+const allTasks = require('../modules/allTask')
+const response = require('../modules/response')
+const speechletResponse = require('../modules/speechletResponse')
 
 const listController = async () => {
   const list = await allTasks

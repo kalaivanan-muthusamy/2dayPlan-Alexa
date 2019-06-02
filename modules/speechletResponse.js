@@ -1,10 +1,11 @@
-const speechletResponse = (outputText, shouldEndSession) => {
+const speechletResponse = (outputText, shouldEndSession, debug = null) => {
   return {
     outputSpeech: {
       type: "PlainText",
       text: outputText
     },
-    shouldEndSession: shouldEndSession
+    shouldEndSession: shouldEndSession,
+    debug: debug
   }
 }
 

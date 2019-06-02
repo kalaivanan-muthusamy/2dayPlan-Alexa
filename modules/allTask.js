@@ -1,12 +1,9 @@
-const mongo = require('../mongoDB');
+const mongoose = require('../mongoose')
+const Task = require('../schema/taskSchema')
 
-const allTasks = async() => {
-    await mongo.connect();
-    const db = mongo.db('mileStone');
-    const col = db.collection('users');
-    const docs = await col.find().toArray();
-    mongo.close();
-    return docs;
+const allTask = async () => {
+  const tasks = await Task.find()
+  return tasks
 }
 
-module.exports = allTasks;
+module.exports = allTask
