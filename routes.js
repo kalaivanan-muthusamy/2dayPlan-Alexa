@@ -1,3 +1,4 @@
+// const listController = require('./controllers/listController')
 const response = require('./modules/response')
 const speechletResponse = require('./modules/speechletResponse')
 
@@ -12,10 +13,8 @@ const routes = (event, context, callback) => {
 
     case "IntentRequest":
       switch (event.request.intent.name) {
-        case "Greet":
-          context.succeed(
-            response(speechletResponse("Hello World", true))
-          )
+        case "List":
+          // context.succeed(await listController())
           break;
       }
     break;

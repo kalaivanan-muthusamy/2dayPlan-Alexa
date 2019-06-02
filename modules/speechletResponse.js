@@ -4,7 +4,6 @@ const speechletResponse = (outputText, shouldEndSession) => {
       type: "PlainText",
       text: outputText
     },
-    debug: 'hello',
     shouldEndSession: shouldEndSession
   }
 }

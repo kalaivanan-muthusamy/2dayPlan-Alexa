@@ -8,3 +8,5 @@ const allTasks = async() => {
     mongo.close();
     return docs;
 }
+
+module.exports = allTasks;
