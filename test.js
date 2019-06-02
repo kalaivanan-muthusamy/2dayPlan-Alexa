@@ -1,10 +1,13 @@
-const listController = require('./controllers/listController')
-const response = require('./modules/response')
-const speechletResponse = require('./modules/speechletResponse')
-const allTask = require('./modules/allTask')
-const routes = async () => {
-  const tasks = await allTask()
-  console.log(response(speechletResponse("Welcome to Task Manager", false, tasks)))
+
+const launchAction = require('./actions/launchAction')
+const buildResponse = require('./response/buildResponse')
+
+const routes = async (callback) => {
+  launchAction(null, null, (sessionAttributes, speechletResponse) => {
+    callback(null, buildResponse(sessionAttributes, speechletResponse))
+  })
 }
 
-routes();
+routes((error, res)=>{
+  console.log(res);
+});
