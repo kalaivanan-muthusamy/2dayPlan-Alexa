@@ -12,8 +12,5 @@
   "dependencies": {
     "mongoose": "^5.5.12"
   },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-strongloop": "^2.1.0"
-  }
+  "devDependencies": {}
 }
