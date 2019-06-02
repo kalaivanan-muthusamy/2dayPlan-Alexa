@@ -1,0 +1,14 @@
+{
+  "name": "milestone-alexa",
+  "version": "1.0.0",
+  "description": "Alexa API for mileStone Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kalaivanan Muthusamy",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.2.6"
+  }
+}
