@@ -1,22 +1,27 @@
 const launchAction = require('./actions/launchAction')
-const indentAction = require('./actions/indentAction')
+const intentAction = require('./actions/intentAction')
 const buildResponse = require('./response/buildResponse')
 
 const routes = async (event, context, callback) => {
+
+  const res = (err, res) => {
+    console.log('res', res)
+    context.succeed(res)
+  }
 
   try {
 
     const requestType = event.request.type;
 
     if(requestType === 'LaunchRequest') {
-        launchAction(event.request, event.session, (sessionAttributes, speechletResponse) => {
-          callback(null, buildResponse(sessionAttributes, speechletResponse))
-        })
+      launchAction(event.request, event.session, (sessionAttributes, speechletResponse) => {
+        res(null, buildResponse(sessionAttributes, speechletResponse))
+      })
     }
 
     else if(requestType === 'IntentRequest') {
-      indentAction(event.request, event.session, (sessionAttributes, speechletResponse) => {
-        callback(null, buildResponse(sessionAttributes, speechletResponse))
+      intentAction(event.request, event.session, (sessionAttributes, speechletResponse) => {
+        res(null, buildResponse(sessionAttributes, speechletResponse))
       })
     }
 

@@ -6,13 +6,13 @@ const buildSpeechletResponse = (speechType, title, outputText, shouldEndSession,
     },
     card: {
         type: 'Simple',
-        title: `SessionSpeechlet - ${title}`,
-        content: `SessionSpeechlet - ${outputText}`,
+        title: `${title}`,
+        content: `${outputText}`,
     },
     reprompt: {
       outputSpeech: {
           type: 'PlainText',
-          text: repromptText,
+          text: repromptText || '',
       },
     },
     shouldEndSession: shouldEndSession

@@ -1,13 +1,18 @@
+const routes = require('./routes')
 
-const launchAction = require('./actions/launchAction')
-const buildResponse = require('./response/buildResponse')
+const res = async () => {
+    const request = {
+      request: {
+        type: 'IntentRequest',
+        intent: {
+          name: 'Task'
+        }
+      },
+      session: null
+    }
+    const result = await routes(request, null, (err, res) => {
 
-const routes = async (callback) => {
-  launchAction(null, null, (sessionAttributes, speechletResponse) => {
-    callback(null, buildResponse(sessionAttributes, speechletResponse))
-  })
+    })
 }
 
-routes((error, res)=>{
-  console.log(res);
-});
+res()
