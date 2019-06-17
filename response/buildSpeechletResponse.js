@@ -2,7 +2,8 @@ const buildSpeechletResponse = (speechType, title, outputText, shouldEndSession,
   return {
     outputSpeech: {
       type: speechType,
-      text: outputText
+      text: outputText,
+      ssml: outputText
     },
     card: {
         type: 'Simple',
